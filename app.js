@@ -12,7 +12,7 @@ const users = Datastore.create('db/Users.db');
 const userRefreshTokens = Datastore.create('db/UserRefreshTokens.db');
 const userInvalidTokens = Datastore.create('db/userInvalidTokens.db');
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.send('REST API Authentication and Authorization');
 });
 
