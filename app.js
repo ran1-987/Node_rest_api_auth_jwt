@@ -3,7 +3,7 @@ import Datastore from 'nedb-promises';
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { config } from './config.js';
-
+import {data} from './dummy.js'
 const app = express();
 
 app.use(express.json());
@@ -15,7 +15,9 @@ const userInvalidTokens = Datastore.create('db/userInvalidTokens.db');
 app.get('/api', (req, res) => {
     res.send('REST API Authentication and Authorization');
 });
-
+app.get('/api/employee', (req, res) => {
+    res.send(data);
+});
 app.post('/api/auth/register', async (req, res) => {
     try {
         const { name, email, password, role } = req.body;
