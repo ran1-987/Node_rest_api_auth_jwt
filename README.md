@@ -2,7 +2,7 @@ authentication and authorization using JWT
 
 
 new registration
-http://3.133.143.154/api/auth/register
+http://processes.icu/api/auth/register
 body-json
 {
     "name":"",
@@ -12,19 +12,19 @@ body-json
 }
 
 Login
-http://3.133.143.154/api/auth/login
+http://processes.icu/api/auth/login
 body-json
 {
     "email":"",
     "password":""
 }
 
-http://3.133.143.154/api/users/current
+http://processes.icu/api/users/current
 hearders
 key=>Atherization
 value=> accessToken
 
-http://3.133.143.154/api/auth/refresh-token
-http://3.133.143.154/api/auth/logout
+http://processes.icu/api/auth/refresh-token
+http://processes.icu/api/auth/logout
 
-http://3.133.143.154/api/admin
+http://processes.icu/api/admin
