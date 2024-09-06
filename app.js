@@ -7,8 +7,8 @@ import {data} from './dummy.js'
 import cors from 'cors'
 const app = express();
 
-app.use(express.json());
 app.use(cors()); 
+app.use(express.json());
 const users = Datastore.create('db/Users.db');
 const userRefreshTokens = Datastore.create('db/UserRefreshTokens.db');
 const userInvalidTokens = Datastore.create('db/userInvalidTokens.db');
