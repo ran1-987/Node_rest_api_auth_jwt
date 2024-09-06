@@ -4,10 +4,11 @@ import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { config } from './config.js';
 import {data} from './dummy.js'
+import cors from 'cors'
 const app = express();
 
 app.use(express.json());
-
+app.use(cors()); 
 const users = Datastore.create('db/Users.db');
 const userRefreshTokens = Datastore.create('db/UserRefreshTokens.db');
 const userInvalidTokens = Datastore.create('db/userInvalidTokens.db');
