@@ -24,7 +24,7 @@ app.get('/api/employee', (req, res) => {
 });
 app.post('/api/auth/register', async (req, res) => {
     try {
-        const { name, email, password, role } = req.body;
+        const { name, email, password, role,userName } = req.body;
         if (!name || !email || !password) {
             return res.status(422).json({ message: 'Please fill in all fields (name , email, password)' })
         }
@@ -37,9 +37,10 @@ app.post('/api/auth/register', async (req, res) => {
             name,
             email,
             password: hasedPassword,
-            role: role ?? 'member'
+            role: role ?? 'member',
+            userName,
         });
-        return res.status(201).json({ message: 'User Registered Successfully', id: newUser._id })
+        return res.status(201).json({ message: 'User Registered Successfully', id: newUser._id})
 
     } catch (error) {
         return res.status(500).json({
