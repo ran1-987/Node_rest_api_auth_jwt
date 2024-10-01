@@ -8,8 +8,7 @@ import cors from 'cors'
 const app = express();
 
 app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'OPTIONS', 'DELETE', 'PUT'],
+    origin: '*'
   }));
 app.use(express.json());
 const users = Datastore.create('db/Users.db');
