@@ -68,7 +68,7 @@ app.get('/api/files', (req, res) => {
                 error: err.message
             });
         }     
-        
+            
         // Return the list of file names
         res.status(200).json({
             message: 'Files retrieved successfully',
