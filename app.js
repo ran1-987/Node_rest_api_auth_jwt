@@ -67,7 +67,7 @@ app.get('/api/files', (req, res) => {
                 message: 'Unable to scan files!',
                 error: err.message
             });
-        }
+        }     
         
         // Return the list of file names
         res.status(200).json({
