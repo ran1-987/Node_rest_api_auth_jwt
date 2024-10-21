@@ -8,7 +8,14 @@ import multer from 'multer';
 import path  from 'path';
 import cors from 'cors';
 import fs from 'fs';
+import { fileURLToPath } from 'url'; // Import to get the current file URL
+import { dirname } from 'path'; // Import to handle path
+
 const app = express();
+
+// Define __dirname for ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 app.use(cors({
     origin: '*',
@@ -26,7 +33,8 @@ const storage = multer.diskStorage({
     }
 });
 const upload = multer({ storage: storage });
-app.use('/uploads', express.static('uploads'));
+// app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Endpoint for uploading files
 app.post('/api/upload', upload.single('file'), (req, res) => {
@@ -66,7 +74,7 @@ app.get('/api/files', (req, res) => {
             message: 'Files retrieved successfully',
             files: files.map(file => ({
                 name: file,
-                url: `http://your-server-address/uploads/${file}`
+                url: `http://your-server-address/uploads/${file}` // Replace with your server address
             }))
         });
     });
