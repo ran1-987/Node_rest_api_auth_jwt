@@ -286,6 +286,6 @@ app.use('/uploads', express.static('uploads'));
 app.use('/api/auth', authRoutes);
 app.use('/api', fileRoutes);
 
-app.listen(3000, () => {
+app.listen(4000, () => {
     console.log('Server started on port 3000');
 });
