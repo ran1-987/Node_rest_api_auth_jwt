@@ -276,7 +276,7 @@ app.use(cors({
     methods: ['GET', 'POST', 'OPTIONS', 'DELETE', 'PUT'],
 }));
 app.use(express.json());
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.send('Welcome to the Node.js Application!');
 });
 app.use('/uploads', express.static('uploads'));
